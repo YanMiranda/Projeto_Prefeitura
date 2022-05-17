@@ -9,35 +9,60 @@ namespace ConsoleApp1
 {
     public class Program
     {
-        public static void main(String[] args)
+        public static void Main(String[] args)
         {
 
-            for (int i = 0; i <= 2; i++)
+            char flag;
+            HashSet<Morador> M1 = new HashSet<Morador>();
+            int i = 0;
+            do
             {
+                
                 Morador MRD = new Morador();
 
                 Console.WriteLine("Qual o nome do morador:");
-                MRD.setNome() = Console.ReadLine();
+                MRD.SetNome(Console.ReadLine());
 
                 Console.WriteLine("Qual o endereço do morador:");
-                MRD.endereço = Console.ReadLine();
+                MRD.SetEndereco(Console.ReadLine());
 
                 Console.WriteLine("Qual o tel do morador:");
-                MRD.tel = double.Parse(Console.ReadLine());
+                MRD.SetTel(long.Parse(Console.ReadLine()));
 
                 Console.WriteLine("Qual o numero de dependentes do morador:");
-                MRD.dependententes = int.Parse(Console.ReadLine());
+                MRD.SetDependentes(byte.Parse(Console.ReadLine()));
 
                 Console.WriteLine("Qual a renda do morador:");
-                MRD.renda = int.Parse(Console.ReadLine());
+                MRD.SetRenda(double.Parse(Console.ReadLine()));
 
                 Console.WriteLine("Qual o CPF do morador:");
-                MRD.CPF = double.Parse(Console.ReadLine());
+                MRD.SetCpf(long.Parse(Console.ReadLine()));
 
-                foreach (DictionaryEntry IMP in morador)
+                if(MRD.GetRenda() <= 1212)
+                {
+                    M1.Add(MRD);
+                } else {
+                    Console.WriteLine("O Morador não é apto a participar do programa. Possui renda maior que" +
+                        " 1 salário minimo");
+                }
+
+                Console.WriteLine("Deseja inserir outro morador? (S/N)");
+                flag = char.Parse(Console.ReadLine());
 
 
+            } while (flag == 's' || flag == 'S');
+
+            Console.WriteLine("Insira o cpf para pesquisa: ");
+            long busca = long.Parse(Console.ReadLine());
+
+            foreach(Morador m in M1)
+            {
+                if (busca == m.GetCpf())
+                    Console.WriteLine(m.ImprimeTudo());
+                else
+                    Console.WriteLine("N existe o morador");
             }
+            Console.ReadKey();
 
 
         }

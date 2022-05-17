@@ -9,75 +9,72 @@ namespace ConsoleApp1
 {
     internal class Morador
     {
-        static long CPF, TEL;
-        static double Renda;
-        static byte Dependentes;
-        static string Nome, Endereco;
-
-        public static void setCPF(long c)
+        private string nome;
+        private long cpf; 
+        private long tel;
+        private double renda; 
+        private byte dependentes; 
+        private string endereco;
+        public string GetNome()
         {
-
-            if (c > 10000000000)
-                CPF = c;
-
+            return nome;
         }
-        public static long getCPF()
+        public void SetNome(string n)
         {
-            return CPF;
+            nome = n;
         }
-        public static void setTEL(long t)
+        public long GetCpf()
+        {
+            return cpf;
+        }
+        public void SetCpf(long c)
+        {
+            cpf = c;
+        }
+        public long GetTel()
+        {
+            return tel;
+        }
+        public void SetTel(long t)
         {
 
             if (t > 10000000000)
-                TEL = t;
+                tel = t;
 
         }
-        public static long getTEL()
+        public double GetRenda()
         {
-            return TEL;
+            return renda;
         }
-        public static void setRenda(double r)
+        public void SetRenda(double r)
         {
-
-            if (r < 0)
-                Renda = r;
-
+            if (r > 0)
+                renda = r;
         }
-        public static double getRenda()
+        public byte GetDependentes()
         {
-            return Renda;
+            return dependentes;
         }
-
-        public static void setDependentes(byte d)
+        public void SetDependentes(byte d)
         {
-
-            if (d < 0)
-                Dependentes = d;
-
+            if (d > 0)
+                dependentes = d;
         }
-        public static byte getDependentes()
+        public string GetEndereco()
         {
-            return Dependentes;
+            return endereco;
         }
-        public static void setEndereco(string e)
+        public void SetEndereco(string e)
         {
 
-            Endereco = e;
+            endereco = e;
 
         }
-        public static string getEndereco()
-        {
-            return Endereco;
-        }
-        public static void setNome(string n)
-        {
 
-            Nome = n;
-
-        }
-        public static string getNome()
+        public string ImprimeTudo()
         {
-            return Nome;
+            return "Morador: "+cpf+",Nome:"+ nome+",Tel:"+tel+",Endereço:"+endereco+
+                ",Dependentes:"+dependentes+",Renda:"+renda;
         }
 
     }
